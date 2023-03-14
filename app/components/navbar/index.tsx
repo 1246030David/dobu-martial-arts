@@ -1,18 +1,38 @@
+import { Link } from "@remix-run/react";
 import { useState } from "react";
-import logo from "~/assets/svg/db-logo.jpg";
-import NavbarLink from "./navbarlink";
+import logo from "~/assets/jpg/DoBu-logo.jpg";
+import NavbarLink from "./NavbarLink";
+import LoginButtons from "../Buttons/LoginButtons";
+import { useOptionalUser } from "~/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const user = useOptionalUser();
+  console.log({ user });
+
   return (
-    <header className=" bg-gray-900 md:flex md:justify-between">
+    <header className=" bg-white  md:flex md:justify-between">
       <div className="flex items-center justify-between px-4 py-3">
-        <div>
-          <img className="h-16 w-auto" src={logo} alt="Dobu Martial Arts Gym" />
+        <Link to="/">
+          <img
+            className="h-20  w-auto"
+            src={logo}
+            alt="Dobu Martial Arts Gym Logo"
+          />
+        </Link>
+
+        <div className="">
+          {user ? (
+            <LoginButtons loggedin={true}></LoginButtons>
+          ) : (
+            <LoginButtons loggedin={false}></LoginButtons>
+          )}
         </div>
+
         <div className="md:hidden">
           <button
-            className="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
+            className="block text-black hover:text-gray-500 focus:text-black focus:outline-none"
             type="button"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -39,12 +59,13 @@ const Navbar = () => {
           isOpen ? "block" : "hidden"
         } md:flex md:items-center `}
       >
-        <NavbarLink url="/">Home</NavbarLink>
-        <NavbarLink url="/about">About Us</NavbarLink>
+        <NavbarLink url="/about">About</NavbarLink>
         <NavbarLink url="/classes">Classes</NavbarLink>
-        <NavbarLink url="/membership">Membership</NavbarLink>
-        <NavbarLink url="/login">Login</NavbarLink>
+        <NavbarLink url="/disciplines">Disciplines</NavbarLink>
+        <NavbarLink url="/kids">Kids</NavbarLink>
+        <NavbarLink url="/contact">Contact</NavbarLink>
       </div>
+      <div></div>
     </header>
   );
 };

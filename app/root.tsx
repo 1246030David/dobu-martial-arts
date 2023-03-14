@@ -8,9 +8,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-import tailwindStylesheetUrl from "./styles/tailwind.css";
+import DoBuFooter from "./components/DoBuFooter";
+import Navbar from "./components/Navbar";
 import { getUser } from "./session.server";
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -18,7 +19,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "DoBu Martial Arts",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -36,10 +37,12 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <DoBuFooter />
       </body>
     </html>
   );

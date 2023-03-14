@@ -9,7 +9,7 @@ const NavbarLink = ({ children, url }: NavbarLinkProps) => {
   return (
     <Link
       to={url}
-      className="mt-1 block rounded px-2 py-1 font-semibold text-white hover:bg-slate-800 md:ml-2"
+      className=" mt-1 block rounded-lg border-2 border-blue-400 bg-blue-400 px-2 py-1 text-xs font-semibold text-white hover:bg-blue-200 md:ml-2 lg:text-base"
     >
       {children}
     </Link>
