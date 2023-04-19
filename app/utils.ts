@@ -67,5 +67,13 @@ export function useUser(): User {
 }
 
 export function validateEmail(email: unknown): email is string {
-  return typeof email === "string" && email.length > 3 && email.includes("@");
+  return (
+    typeof email === "string" &&
+    email.length > 6 &&
+    email.includes("@") &&
+    email.includes(".")
+  );
+  // This function only checks for the @ and . symbols, but could be improved by checking that the . symbol
+  // appears after the @ symbol with at least one character in between and that there are at least two characters
+  //following the . (there are no single character TLDs)
 }

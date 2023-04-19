@@ -4,17 +4,20 @@ import logo from "~/assets/jpg/DoBu-logo.jpg";
 import NavbarLink from "./NavbarLink";
 import LoginButtons from "../Buttons/LoginButtons";
 import { useOptionalUser } from "~/utils";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const user = useOptionalUser();
-  console.log({ user });
+
+  const pageName = useLocation().pathname.replace("/", "");
+  console.log({ pageName });
 
   return (
     <header className=" bg-white  md:flex md:justify-between">
       <div className="flex items-center justify-between px-4 py-3">
-        <Link to="/">
+        <Link to="/" prefetch="intent">
           <img
             className="h-20  w-auto"
             src={logo}
@@ -22,7 +25,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="">
+        <div className="md:hidden">
           {user ? (
             <LoginButtons loggedin={true}></LoginButtons>
           ) : (
@@ -54,18 +57,49 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div
-        className={`px-2 pt-2 pb-4 ${
-          isOpen ? "block" : "hidden"
-        } md:flex md:items-center `}
-      >
-        <NavbarLink url="/about">About</NavbarLink>
-        <NavbarLink url="/classes">Classes</NavbarLink>
-        <NavbarLink url="/disciplines">Disciplines</NavbarLink>
-        <NavbarLink url="/kids">Kids</NavbarLink>
-        <NavbarLink url="/contact">Contact</NavbarLink>
+      <div>
+        <div
+          className={`mt-2 px-2 pt-2 pb-4 ${
+            isOpen ? "block" : "hidden"
+          } md:flex md:items-center `}
+        >
+          <NavbarLink
+            url="/about"
+            current={pageName === "about" ? true : false}
+          >
+            About
+          </NavbarLink>
+          <NavbarLink
+            url="/classes"
+            current={pageName === "classes" ? true : false}
+          >
+            Classes
+          </NavbarLink>
+          <NavbarLink
+            url="/disciplines"
+            current={pageName === "disciplines" ? true : false}
+          >
+            Disciplines
+          </NavbarLink>
+          <NavbarLink url="/kids" current={pageName === "kids" ? true : false}>
+            Kids
+          </NavbarLink>
+          <NavbarLink
+            url="/contact"
+            current={pageName === "contact" ? true : false}
+          >
+            Contact
+          </NavbarLink>
+
+          <div className="hidden md:ml-4 md:block">
+            {user ? (
+              <LoginButtons loggedin={true}></LoginButtons>
+            ) : (
+              <LoginButtons loggedin={false}></LoginButtons>
+            )}
+          </div>
+        </div>
       </div>
-      <div></div>
     </header>
   );
 };

@@ -1,13 +1,7 @@
-import facebooklogo from "~/assets/png/fb.png";
 import instagramlogo from "~/assets/png/ig.png";
-import twitterlogo from "~/assets/png/tw.png";
 
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  PinterestShareButton,
-} from "react-share";
-import { FacebookIcon, TwitterIcon, PinterestIcon } from "react-share";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
+import { FacebookIcon, TwitterIcon } from "react-share";
 
 const DoBuFooter = () => {
   return (
@@ -18,14 +12,20 @@ const DoBuFooter = () => {
             <div className="text-xl font-bold text-white lg:pt-8">Social</div>
           </div>
 
-          <div className="ml-6 flex w-56 bg-white">
-            <img className="h-10 pl-6" src={facebooklogo} alt="Facebook logo" />
+          <div className="ml-6 flex h-12 w-56  ">
+            <FacebookShareButton
+              url="https:/www.google.com"
+              children={<FacebookIcon className="ml-2 h-12 w-12" />}
+            />
             <img
-              className="h-10 pl-6"
+              className="ml-2 h-12"
               src={instagramlogo}
               alt="Facebook logo"
             />
-            <img className="h-10 pl-6" src={twitterlogo} alt="Facebook logo" />
+            <TwitterShareButton
+              url="https:/www.google.com"
+              children={<TwitterIcon className="ml-2 h-12 w-12" />}
+            />
           </div>
         </div>
 
@@ -39,21 +39,6 @@ const DoBuFooter = () => {
           <div className="text-xl font-bold text-white lg:pt-8">Copyright</div>
           <div className="pt-1 pb-8 text-white">(c) Dobu Watopia Ltd 2023</div>
         </div>
-      </div>
-      <div>
-        <FacebookShareButton
-          url="https:/www.google.com"
-          children={<FacebookIcon className="h-12 w-12" />}
-        />
-        <TwitterShareButton
-          url="https:/www.google.com"
-          children={<TwitterIcon className="h-12 w-12" />}
-        />
-        <PinterestShareButton
-          url="https:/www.google.com"
-          children={<PinterestIcon className="h-12 w-12" />}
-          media="https://static.wixstatic.com/media/6c1c38_256c8e61f00045e68ccc386a82e51bea~mv2.jpg/v1/fit/w_2500,h_1330,al_c/6c1c38_256c8e61f00045e68ccc386a82e51bea~mv2.jpg"
-        />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const LoginButtons = ({ loggedin }: LoginButtonProps) => {
           </button>
         </Form>
       ) : (
-        <div className="px-6">
+        <div className="px-2 lg:px-6">
           <BlueButtonLink url="/login">Log in</BlueButtonLink>
           <BlueButtonLink url="/join">Register</BlueButtonLink>
         </div>
