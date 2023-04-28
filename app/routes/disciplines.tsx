@@ -5,6 +5,14 @@ import karateimage from "~/assets/jpg/karate.jpg";
 import judoimage from "~/assets/jpg/judo.jpg";
 import muayimage from "~/assets/jpg/muay.jpg";
 import { useState } from "react";
+import type { MetaFunction } from "@remix-run/node";
+import { Parallax } from "react-scroll-parallax";
+
+export const meta: MetaFunction = () => ({
+  title: "DoBu Martial Arts",
+  description:
+    "We provide classes Jiu Jitsu, Karate, Judo and Muay Thai with daily kids classes.  Our instructors are highly qualified in a range of martial arts.",
+});
 
 export default function Index() {
   const martialArts = [
@@ -66,14 +74,16 @@ export default function Index() {
   return (
     <>
       <main className="">
-        <div className="relative pb-16 pt-8">
-          <div className="absolute inset-0">
-            <img
-              className="h-full w-full object-cover"
-              src={mainimage}
-              alt="A martial artist silhoueted on an empty beach at sunset"
-            />
-            <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+        <div className="relative ">
+          <div className="absolute inset-0 overflow-hidden">
+            <Parallax speed={-20}>
+              <img
+                className="h-full w-full object-cover"
+                src={mainimage}
+                alt="A martial artist silhoueted on an empty beach at sunset"
+              />
+              <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+            </Parallax>
           </div>
 
           <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">
@@ -107,13 +117,13 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="pl-6 pt-20  lg:flex">
-          <div className="hidden  lg:flex  lg:flex-col ">
+        <div className="pl-6 pt-20 lg:flex">
+          <div className="hidden lg:flex  lg:flex-col ">
             <button
               className={
                 martialArts[maNumber].matype === martialArts[0].matype
-                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base  font-bold "
-                  : "mx-4 mt-12 items-center px-1 py-1  text-base font-bold hover:bg-gray-200"
+                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base font-bold "
+                  : "mx-4 mt-12 items-center px-1 py-1 text-base font-bold hover:bg-gray-200"
               }
               onClick={() => changeMA(0)}
             >
@@ -122,7 +132,7 @@ export default function Index() {
             <button
               className={
                 martialArts[maNumber].matype === martialArts[1].matype
-                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base  font-bold "
+                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base font-bold "
                   : "mx-4 mt-12 items-center px-1 py-1  text-base font-bold hover:bg-gray-200"
               }
               onClick={() => changeMA(1)}
@@ -132,8 +142,8 @@ export default function Index() {
             <button
               className={
                 martialArts[maNumber].matype === martialArts[2].matype
-                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base  font-bold "
-                  : "mx-4 mt-12 items-center px-1 py-1  text-base font-bold hover:bg-gray-200"
+                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base font-bold "
+                  : "mx-4 mt-12 items-center px-1 py-1 text-base font-bold hover:bg-gray-200"
               }
               onClick={() => changeMA(2)}
             >
@@ -142,7 +152,7 @@ export default function Index() {
             <button
               className={
                 martialArts[maNumber].matype === martialArts[3].matype
-                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base  font-bold "
+                  ? "mx-4 mt-12 items-center bg-blue-300 px-1 py-1 text-base font-bold "
                   : "mx-4 mt-12 items-center px-1 py-1  text-base font-bold hover:bg-gray-200"
               }
               onClick={() => changeMA(3)}
@@ -160,11 +170,11 @@ export default function Index() {
               headaligncenter={true}
             ></InfoCard2>
           </div>
-          <div className=" relative  pt-12  pb-32 lg:pt-20">
+          <div className=" relative pt-12 pb-32 lg:pt-20">
             <div className="">
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 ">
                 <img
-                  className="mb-10 h-auto  w-full lg:w-auto lg:max-w-xl lg:object-center lg:px-4"
+                  className="mb-10 h-auto w-full lg:w-auto lg:max-w-xl lg:object-center lg:px-4"
                   src={martialArts[maNumber].src}
                   alt={martialArts[maNumber].alttext}
                 />

@@ -1,18 +1,28 @@
 import mainimage from "~/assets/jpg/mainimage.jpg";
 import timetable from "~/assets/png/timetable.png";
+import type { MetaFunction } from "@remix-run/node";
+import { Parallax } from "react-scroll-parallax";
+
+export const meta: MetaFunction = () => ({
+  title: "DoBu Classes",
+  description:
+    "DoBu Martial Arts classes run daily, 7 days a week. Starting at 6am on weekdays they are perfect for a pre-work session.",
+});
 
 export default function Index() {
   return (
     <>
       <main className="">
         <div className="relative pb-16 pt-8">
-          <div className="absolute inset-0">
-            <img
-              className="h-full w-full object-cover"
-              src={mainimage}
-              alt="A martial artist silhoueted on an empty beach at sunset"
-            />
-            <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+          <div className="absolute inset-0 overflow-hidden">
+            <Parallax speed={-20}>
+              <img
+                className="h-full w-full object-cover"
+                src={mainimage}
+                alt="A martial artist silhoueted on an empty beach at sunset"
+              />
+              <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+            </Parallax>
           </div>
 
           <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">

@@ -5,27 +5,37 @@ import { FacebookIcon, TwitterIcon } from "react-share";
 
 const DoBuFooter = () => {
   return (
-    <div className="pt-20">
+    <div className="mt-20 pt-10">
       <div className="bg-[#D7883F] md:flex md:justify-around">
         <div>
           <div className="flex items-center justify-between px-6 pt-6 pb-2 lg:pt-8">
             <div className="text-xl font-bold text-white lg:pt-8">Social</div>
           </div>
 
-          <div className="ml-6 flex h-12 w-56  ">
-            <FacebookShareButton
-              url="https:/www.google.com"
-              children={<FacebookIcon className="ml-2 h-12 w-12" />}
-            />
-            <img
-              className="ml-2 h-12"
-              src={instagramlogo}
-              alt="Facebook logo"
-            />
-            <TwitterShareButton
-              url="https:/www.google.com"
-              children={<TwitterIcon className="ml-2 h-12 w-12" />}
-            />
+          <div className="ml-6 flex h-12 w-56">
+            <div className="transition-all duration-500 hover:scale-110">
+              <FacebookShareButton
+                url="https:/www.google.com"
+                children={<FacebookIcon className="ml-2 h-12 w-12" />}
+              />
+            </div>
+
+            <div className="transition-all duration-500 hover:scale-110">
+              <a href="https://www.instagram.com/dobu/">
+                <img
+                  className="ml-2 h-12"
+                  src={instagramlogo}
+                  alt="Facebook logo"
+                />
+              </a>
+            </div>
+
+            <div className="transition-all duration-500 hover:scale-110">
+              <TwitterShareButton
+                url="https:/www.google.com"
+                children={<TwitterIcon className="ml-2 h-12 w-12" />}
+              />
+            </div>
           </div>
         </div>
 

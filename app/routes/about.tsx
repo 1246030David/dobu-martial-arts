@@ -5,19 +5,29 @@ import instructorsTable from "~/assets/png/Instructors.png";
 import specialistTable from "~/assets/png/SpecialistTable.png";
 import Widecard from "~/components/WideCard";
 import Infocard from "~/components/InfoCard";
+import type { MetaFunction } from "@remix-run/node";
+import { Parallax } from "react-scroll-parallax";
+
+export const meta: MetaFunction = () => ({
+  title: "About DoBu Martial Arts",
+  description:
+    "DoBu Martial Arts instructors are highly qualified in a range of martial arts.  As well as regular classes we also provide personal training and martial arts courses.",
+});
 
 export default function About() {
   return (
     <>
       <main className="">
         <div className="relative pb-16 pt-8">
-          <div className="absolute inset-0">
-            <img
-              className="h-full w-full object-cover"
-              src={mainimage}
-              alt="A martial artist silhoueted on an empty beach at sunset"
-            />
-            <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+          <div className="absolute inset-0 overflow-hidden">
+            <Parallax speed={-20}>
+              <img
+                className="h-full w-full object-cover"
+                src={mainimage}
+                alt="A martial artist silhoueted on an empty beach at sunset"
+              />
+              <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+            </Parallax>
           </div>
 
           <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">
@@ -97,19 +107,18 @@ export default function About() {
           </p>
 
           <div className="flex" id="gym">
-            <div className="">
-              <Infocard
-                url=""
-                headline="Gym"
-                bodytext1="Our gym is equiped with a range of high quality equipment and free weights and is available throughout the day."
-                bodytext2="Our personal trainers can also help you get the most out of the gym facilities."
-                bodytext3=""
-                headaligncenter={false}
-              ></Infocard>
-            </div>
-            <div className="hidden pt-10 lg:block">
+            <Infocard
+              url=""
+              headline="Gym"
+              bodytext1="Our gym is equiped with a range of high quality equipment and free weights and is available throughout the day."
+              bodytext2="Our personal trainers can also help you get the most out of the gym facilities."
+              bodytext3=""
+              headaligncenter={false}
+            ></Infocard>
+
+            <div className="hidden pt-10 lg:block ">
               <img
-                className="mx-6 h-auto  w-auto max-w-lg"
+                className="mx-6 h-auto w-auto max-w-lg rounded-lg"
                 src={gymimage}
                 alt="A gym containing free weights"
               />
@@ -117,7 +126,7 @@ export default function About() {
           </div>
           <div className="pt-10">
             <img
-              className="h-full w-full   object-cover  object-center lg:hidden"
+              className="h-full w-full object-cover object-center lg:hidden"
               src={gymimage}
               alt="A gym containing free weights"
             />
@@ -127,7 +136,7 @@ export default function About() {
             <div className="flex">
               <div className="hidden pt-10 lg:block" id="leisure">
                 <img
-                  className="mx-6  h-auto w-auto max-w-lg  "
+                  className="mx-6 h-auto w-auto max-w-lg rounded-lg  "
                   src={saunaimage}
                   alt="An empty sauna"
                 />
@@ -143,7 +152,7 @@ export default function About() {
             </div>
             <div className="pt-10">
               <img
-                className="h-full w-full   object-cover  object-center lg:hidden"
+                className="h-full w-full object-cover object-center lg:hidden "
                 src={saunaimage}
                 alt="An empty sauna"
               />

@@ -13,6 +13,8 @@ import Navbar from "./components/Navbar";
 import { getUser } from "./session.server";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
+import { ParallaxProvider } from "react-scroll-parallax";
+
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
@@ -21,6 +23,8 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "DoBu Martial Arts",
   viewport: "width=device-width,initial-scale=1",
+  description:
+    "DoBu Martial Arts is the leading mixed-discipline martial arts facility in Watopia.  We also provide an extensive modern gym and leisure facilities.",
 });
 
 export async function loader({ request }: LoaderArgs) {
@@ -37,12 +41,14 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Navbar />
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-        <DoBuFooter />
+        <ParallaxProvider>
+          <Navbar />
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+          <DoBuFooter />
+        </ParallaxProvider>
       </body>
     </html>
   );

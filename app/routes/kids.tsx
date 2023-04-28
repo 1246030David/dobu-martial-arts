@@ -1,19 +1,29 @@
 import mainimage from "~/assets/jpg/mainimage.jpg";
 import kidsimage from "~/assets/jpg/kidskarate.jpg";
 import Widecard from "~/components/WideCard";
+import type { MetaFunction } from "@remix-run/node";
+import { Parallax } from "react-scroll-parallax";
+
+export const meta: MetaFunction = () => ({
+  title: "Kids @ DoBu",
+  description:
+    "DoBu Martial Arts instructors are highly qualified in a range of martial arts.  As well as regular classes we also provide personal training and martial arts courses.",
+});
 
 export default function Index() {
   return (
     <>
       <main className="">
         <div className="relative pb-16 pt-8">
-          <div className="absolute inset-0">
-            <img
-              className="h-full w-full object-cover"
-              src={mainimage}
-              alt="A martial artist silhoueted on an empty beach at sunset"
-            />
-            <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+          <div className="absolute inset-0 overflow-hidden">
+            <Parallax speed={-20}>
+              <img
+                className="h-full w-full object-cover"
+                src={mainimage}
+                alt="A martial artist silhoueted on an empty beach at sunset"
+              />
+              <div className="absolute inset-0 bg-neutral-400 mix-blend-multiply" />
+            </Parallax>
           </div>
 
           <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">
@@ -43,7 +53,7 @@ export default function Index() {
         </div>
 
         <div className="lg:flex ">
-          <div className="pb-10">
+          <div className="pb-10 lg:w-1/2">
             <Widecard
               url=""
               headline=""
@@ -60,9 +70,9 @@ export default function Index() {
             ></Widecard>
           </div>
           <img
-            className="mx-auto  w-auto  object-center lg:max-w-lg"
+            className="mx-auto  mt-10 object-center  lg:h-auto lg:w-1/2 lg:object-cover"
             src={kidsimage}
-            alt="Children dressed in martial art uniforms"
+            alt="Four children pose dressed in martial art uniforms"
           />
         </div>
       </main>
