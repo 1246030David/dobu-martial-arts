@@ -33,7 +33,7 @@ export default function About() {
           <div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">
             <h1 className="text-center font-sans text-4xl tracking-tight ">
               <span className="block text-white drop-shadow-md">
-                About DoBo Marshal Arts
+                About DoBo Marshal Arts Gym
               </span>
             </h1>
 
